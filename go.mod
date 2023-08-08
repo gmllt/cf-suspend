@@ -5,7 +5,7 @@ go 1.20
 require (
 	code.cloudfoundry.org/cli v7.1.0+incompatible
 	github.com/jessevdk/go-flags v1.5.0
-	github.com/orange-cloudfoundry/cf-security-entitlement v0.69.5
+	github.com/orange-cloudfoundry/cf-security-entitlement v0.70.0
 )
 
 require (
