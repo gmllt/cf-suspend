@@ -10,6 +10,7 @@ A simple plugin to help you suspend or resume your CloudFoundry organizations.
 ## Usage
 
 ```
-  suspend-org ORG_NAME      Suspend the organization
-  resume-org ORG_NAME       Resume the organization
+  suspend-org ORG_NAME           Suspend the organization
+  resume-org ORG_NAME            Resume the organization
+  is-org-suspended ORG_NAME      Check if the organization is suspended
 ```

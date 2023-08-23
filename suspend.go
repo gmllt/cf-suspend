@@ -25,7 +25,7 @@ func (c *SuspendCommand) Execute(_ []string) error {
 
 	orgShow := c.SuspendOptions.Org
 	if orgShow != "" {
-		orgShow = "/" + fmt.Sprint(messages.C.Cyan(orgShow))
+		orgShow = fmt.Sprint(messages.C.Cyan(orgShow))
 	}
 	_, _ = messages.Printf("Suspending org %s as %s\n", orgShow, messages.C.Cyan(username))
 

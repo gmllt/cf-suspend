@@ -65,6 +65,13 @@ func (c *SuspendPlugin) GetMetadata() plugin.PluginMetadata {
 					Usage: "cf resume-org ORG_NAME",
 				},
 			},
+			{
+				Name:     "is-org-suspended",
+				HelpText: "Check if an organization is suspended.",
+				UsageDetails: plugin.Usage{
+					Usage: "cf is-org-suspended ORG_NAME",
+				},
+			},
 		},
 	}
 }
