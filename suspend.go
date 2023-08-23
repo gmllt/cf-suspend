@@ -15,6 +15,8 @@ type SuspendCommand struct {
 	SuspendOptions SuspendOptions `required:"2" positional-args:"true"`
 }
 
+var suspendCommand SuspendCommand
+
 func (c *SuspendCommand) Execute(_ []string) error {
 	username, err := cliConnection.Username()
 	if err != nil {
@@ -41,10 +43,22 @@ func (c *SuspendCommand) Execute(_ []string) error {
 }
 
 func suspendOrg(orgGUID string) error {
-	_, err := cliConnection.CliCommandWithoutTerminalOutput("curl", "-X", "PATCH", "/v3/organizations/"+orgGUID, "-d", `{"suspend":true}`)
+	_, err := cliConnection.CliCommandWithoutTerminalOutput("curl", "-X", "PATCH", "/v3/organizations/"+orgGUID, "-d", `{"suspended":true}`)
 	if err != nil {
 		return err
 	}
 
 	return nil
+}
+
+func init() {
+	desc := `Suspend a organization.`
+	_, err := parser.AddCommand(
+		"suspend-org",
+		desc,
+		desc,
+		&suspendCommand)
+	if err != nil {
+		panic(err)
+	}
 }

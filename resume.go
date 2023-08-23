@@ -15,6 +15,8 @@ type ResumeCommand struct {
 	ResumeOptions ResumeOptions `required:"2" positional-args:"true"`
 }
 
+var resumeCommand ResumeCommand
+
 func (c *ResumeCommand) Execute(_ []string) error {
 	username, err := cliConnection.Username()
 	if err != nil {
@@ -41,10 +43,22 @@ func (c *ResumeCommand) Execute(_ []string) error {
 }
 
 func resumeOrg(orgGUID string) error {
-	_, err := cliConnection.CliCommandWithoutTerminalOutput("curl", "-X", "PATCH", "/v3/organizations/"+orgGUID, "-d", `{"suspend":false}`)
+	_, err := cliConnection.CliCommandWithoutTerminalOutput("curl", "-X", "PATCH", "/v3/organizations/"+orgGUID, "-d", `{"suspended":false}`)
 	if err != nil {
 		return err
 	}
 
 	return nil
+}
+
+func init() {
+	desc := `Resume a organization.`
+	_, err := parser.AddCommand(
+		"resume-org",
+		desc,
+		desc,
+		&resumeCommand)
+	if err != nil {
+		panic(err)
+	}
 }
