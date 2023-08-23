@@ -13,7 +13,7 @@ import (
 type Options struct {
 }
 
-var pluginVersion = "0.1.1"
+var pluginVersion = "0.1.2"
 var options Options
 var parser = flags.NewParser(&options, flags.HelpFlag|flags.PassDoubleDash|flags.IgnoreUnknown)
 var cliConnection plugin.CliConnection
@@ -70,6 +70,13 @@ func (c *SuspendPlugin) GetMetadata() plugin.PluginMetadata {
 				HelpText: "Check if an organization is suspended.",
 				UsageDetails: plugin.Usage{
 					Usage: "cf is-org-suspended ORG_NAME",
+				},
+			},
+			{
+				Name:     "list-suspended-orgs",
+				HelpText: "List suspended organizations.",
+				UsageDetails: plugin.Usage{
+					Usage: "cf list-suspended-orgs",
 				},
 			},
 		},
