@@ -5,7 +5,7 @@ go 1.20
 require (
 	code.cloudfoundry.org/cli v7.1.0+incompatible
 	github.com/jessevdk/go-flags v1.5.0
-	github.com/orange-cloudfoundry/cf-security-entitlement v0.70.0
+	github.com/orange-cloudfoundry/cf-security-entitlement v0.71.0
 )
 
 require (
@@ -18,5 +18,5 @@ require (
 	github.com/onsi/ginkgo v1.16.5 // indirect
 	github.com/onsi/ginkgo/v2 v2.11.0 // indirect
 	github.com/onsi/gomega v1.27.10 // indirect
-	golang.org/x/sys v0.11.0 // indirect
+	golang.org/x/sys v0.12.0 // indirect
 )
