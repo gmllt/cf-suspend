@@ -13,7 +13,7 @@ import (
 type Options struct {
 }
 
-var pluginVersion = "0.1.2"
+var pluginVersion = "0.1.3"
 var options Options
 var parser = flags.NewParser(&options, flags.HelpFlag|flags.PassDoubleDash|flags.IgnoreUnknown)
 var cliConnection plugin.CliConnection
